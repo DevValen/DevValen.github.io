@@ -25,13 +25,6 @@
 
 ---
 
-## 📊 Estatísticas do GitHub
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ValentinaSantangelo&show_icons=true&theme=tokyonight"/>
-</div>
-
----
-
 ## 🌐 Onde me encontrar
 📧 **DevValentinaSantangelo@gmail.com**  
 💼 [LinkedIn](https://www.linkedin.com/in/valentina-santangelo-97bb8a248]) 
