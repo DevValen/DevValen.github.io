@@ -1,0 +1,130 @@
+# === SISTEMA CLÍNICA VIDA+ ===
+# Programa desenvolvido para gerenciar pacientes da clínica
+
+# Lista para armazenar os pacientes (cada paciente é um dicionário)
+pacientes = []
+
+# Função para cadastrar um paciente
+def cadastrar_paciente():
+    print("\n=== CADASTRAR PACIENTE ===")
+    nome = input("Nome do paciente: ").strip()
+    if not nome:
+        print("Erro: o nome não pode ser vazio!")
+        return
+
+    try:
+        idade_input = input("Idade: ").strip()
+        idade = int(idade_input)
+        if idade < 0 or idade > 120:
+            print("Erro: idade deve estar entre 0 e 120 anos!")
+            return
+    except ValueError:
+        print("Erro: idade deve ser um número inteiro válido!")
+        return
+
+    telefone = input("Telefone: ").strip()
+    if not telefone:
+        print("Erro: o telefone não pode ser vazio!")
+        return
+
+    # Verifica se já existe paciente com o mesmo nome e telefone (evita duplicatas)
+    for p in pacientes:
+        if p["nome"].lower() == nome.lower() and p["telefone"] == telefone:
+            print("Aviso: paciente com mesmo nome e telefone já cadastrado.")
+            return
+
+    paciente = {"nome": nome, "idade": idade, "telefone": telefone}
+    pacientes.append(paciente)
+    print("✅ Paciente cadastrado com sucesso!")
+
+
+# Função para mostrar estatísticas
+def ver_estatisticas():
+    print("\n=== ESTATÍSTICAS ===")
+    if len(pacientes) == 0:
+        print("Nenhum paciente cadastrado.")
+        return
+
+    total = len(pacientes)
+    idades = [p["idade"] for p in pacientes]
+    media = sum(idades) / total
+    mais_novo = min(pacientes, key=lambda p: p["idade"])
+    mais_velho = max(pacientes, key=lambda p: p["idade"])
+
+    print(f"Total de pacientes: {total}")
+    print(f"Idade média: { media:.1f} anos")
+    print(f"Mais novo: {mais_novo['nome']} ({mais_novo['idade']} anos)")
+    print(f"Mais velho: {mais_velho['nome']} ({mais_velho['idade']} anos)")
+
+
+# Função para buscar paciente pelo nome (busca parcial e case-insensitive)
+def buscar_paciente():
+    print("\n=== BUSCAR PACIENTE ===")
+    if len(pacientes) == 0:
+        print("Nenhum paciente cadastrado.")
+        return
+
+    termo = input("Digite o nome (ou parte do nome): ").strip().lower()
+    if not termo:
+        print("Erro: digite pelo menos um caractere para buscar.")
+        return
+
+    encontrados = [p for p in pacientes if termo in p["nome"].lower()]
+
+    if encontrados:
+        print(f"\n{len(encontrados)} paciente(s) encontrado(s):")
+        for i, p in enumerate(encontrados, start=1):
+            print(f"{i}. Nome: {p['nome']} | Idade: {p['idade']} | Telefone: {p['telefone']}")
+    else:
+        print("Nenhum paciente encontrado com esse nome.")
+
+
+# Função para listar todos os pacientes
+def listar_pacientes():
+    print("\n=== LISTA DE PACIENTES ===")
+    if len(pacientes) == 0:
+        print("Nenhum paciente cadastrado.")
+        return
+
+    print(f"Total: {len(pacientes)} paciente(s)\n")
+    for i, p in enumerate(pacientes, start=1):
+        print(f"{i}. Nome: {p['nome']} | Idade: {p['idade']} anos | Telefone: {p['telefone']}")
+
+
+# Loop principal do sistema
+def menu():
+    print("Bem-vindo ao Sistema Clínica Vida+")
+    while True:
+        print("\n" + "="*40)
+        print("     SISTEMA CLÍNICA VIDA+")
+        print("="*40)
+        print("1. Cadastrar paciente")
+        print("2. Ver estatísticas")
+        print("3. Buscar paciente")
+        print("4. Listar todos os pacientes")
+        print("5. Sair")
+        print("-"*40)
+
+        opcao = input("Escolha uma opção (1-5): ").strip()
+
+        if opcao == "1":
+            cadastrar_paciente()
+        elif opcao == "2":
+            ver_estatisticas()
+        elif opcao == "3":
+            buscar_paciente()
+        elif opcao == "4":
+            listar_pacientes()
+        elif opcao == "5":
+            print("\nSaindo do sistema... Obrigado por usar a Clínica Vida+!")
+            break
+        else:
+            print("Opção inválida! Por favor, escolha um número de 1 a 5.")
+
+        # Pausa para o usuário ler a mensagem
+        input("\nPressione ENTER para continuar...")
+
+
+# === EXECUÇÃO DO PROGRAMA ===
+if __name__ == "__main__":
+    menu()
