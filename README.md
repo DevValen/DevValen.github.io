@@ -23,12 +23,6 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="VSCode" />
 </div>
 
----
-
-## 📊 Estatísticas do GitHub
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ValentinaSantangelo&show_icons=true&theme=tokyonight"/>
-</div>
 
 ---
 
