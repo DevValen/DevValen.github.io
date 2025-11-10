@@ -1,4 +1,3 @@
-# DevValen.github.io
 # 👋 Olá, eu sou a Valentina!
 
 🎓 Estudante de **Análise e Desenvolvimento de Sistemas (ADS)**  
