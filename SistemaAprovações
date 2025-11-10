@@ -1,0 +1,46 @@
+# sistema_notas.py
+def ler_nota(prompt):
+    """
+    Lê uma nota do usuário, validando que seja um número entre 0 e 10.
+    Repete até receber um valor válido.
+    """
+    while True:
+        entrada = input(prompt).strip().replace(",", ".")
+        try:
+            nota = float(entrada)
+        except ValueError:
+            print("Entrada inválida. Digite um número (ex: 7 ou 7.5).")
+            continue
+        if 0 <= nota <= 10:
+            return nota
+        print("Nota inválida. Informe um valor entre 0 e 10.")
+
+def main():
+    print("Olá! Bem-vindo ao sistema de notas!")
+    nome = input("Digite o nome do aluno: ").strip()
+    if nome == "":
+        nome = "Aluno(a) sem nome"
+
+    print(f"\nVeja o relatório de notas do aluno: {nome}\n")
+
+    nota1 = ler_nota("Digite a primeira nota: ")
+    nota2 = ler_nota("Digite a segunda nota: ")
+    nota3 = ler_nota("Digite a terceira nota: ")
+    nota4 = ler_nota("Digite a quarta nota: ")
+
+    print()
+    print(f"A primeira nota é: {nota1}")
+    print(f"A segunda nota é: {nota2}")
+    print(f"A terceira nota é: {nota3}")
+    print(f"A quarta nota é: {nota4}")
+
+    media = (nota1 + nota2 + nota3 + nota4) / 4
+
+    # Critério de aprovação: média maior ou igual a 6
+    situacao = "Você foi aprovado!" if media >= 6 else "Você foi reprovado."
+
+    print(f"\nA média do aluno é: {media:.2f}")
+    print(f"Situação: {situacao}")
+
+if __name__ == "__main__":
+    main()
