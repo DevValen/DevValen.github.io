@@ -8,14 +8,14 @@
 ---
 
 ### 🧠 Foco atual de estudos
-- Backend do zero  
+- Frontend do zero  
 - Lógica de programação e estruturas de dados  
 - Arquitetura de computadores e sistemas operacionais  
-- Programação em **C** e **Java**
+- Programação em  **JavaScript**
 
 ---
 
-### 🛠️ Tecnologias que já domino (e amo)
+### 🛠️ Tecnologias que já conheço (e amo)
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="45" alt="Python" title="Python"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="45" alt="Java" title="Java"/>
